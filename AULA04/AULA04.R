@@ -131,4 +131,66 @@ dim(Queimadas)
 write.csv(Queimadas, file = "/home/est/gfp24/Downloads/queimada.csv", row.names = FALSE)
 
 
+####### EXERCÍCIOS
 
+head(Queimadas, n=9)
+tail(Queimadas, n=3)
+nrow(Queimadas)
+NCOL(Queimadas)
+summary(Queimadas)
+unique(Queimadas$bioma)
+length(unique(Queimadas$bioma))
+Queimadas$bioma = factor(Queimadas$bioma)
+Queimadas$bioma
+nlevels(Queimadas$bioma)
+levels(Queimadas$bioma)
+
+SUL = toupper(c("PARANÁ", "SANTA CATARINA", "RIO GRANDE DO SUL"))
+
+SUL = subset(Queimadas, estado %in% SUL)
+mean(SUL$avg_numero_dias_sem_chuva)
+
+NORTE = toupper(c("ACRE", "AMAZONAS", "PARÁ", "RONDÔNIA", "RORAIMA"))
+
+NORTE = subset(Queimadas, estado %in% NORTE)
+mean(NORTE$avg_numero_dias_sem_chuva)
+
+
+
+#########
+
+library(data.table)
+# Criar um data.table
+meu_data_table <- data.table(
+  nome = c("Alice", "Bob", "Carol", "Ana", "João", "Carlos", "Patrícia", "Leonardo"),
+  idade = c(25, 30, 28, 20, 27, 50, 60, 45),
+  salario = c(5000, 6000, 5500, 8000, 2000, 3500, 10000, 3800 ), 
+  meio_de_transporte = c('onibus', 'bicicleta', 'onibus', 'carro', 'carro', 'onibus', 'onibus', 'bicicleta'))
+meu_data_table
+
+class(meu_data_table)
+
+# Importar um data.table e comparando o tempo de importação com o read.csv
+
+system.time(Queimadas <- fread("/home/est/gfp24/Downloads/queimada.csv"))
+
+system.time(Queimadas <- read.csv("/home/est/gfp24/Downloads/queimada.csv"))
+
+# Selecionar colunas e filtrar linhas
+resultado <- meu_data_table[idade > 25, .(nome, salario)]
+resultado
+
+# Agregar dados 
+agregado <- meu_data_table[, .(media_salario = mean(salario)),]
+agregado
+
+# Agregar dados por idade
+agregado_idade <- meu_data_table[, .(media_salario = mean(salario)), by = idade]
+agregado_idade
+
+# Agregar dados por meio_de_transporte
+agregado_mt <- meu_data_table[, .(media_salario = mean(salario)), by = meio_de_transporte]
+agregado_mt
+
+install.packages("tibble")
+require(tibble)
