@@ -1,0 +1,52 @@
+---
+title: "Lista_1"
+output: html_document
+date: "2024-10-23"
+---
+
+# Título de nível 1.
+
+Escrevendo um parágrafo de texto normal, como pediu a lista. E destacando uma palavra em *itálico*, e outra em **negrito**, agora em ***itálico e negrito***.
+
+- item I
+- item II
+- item III
+
+1. Item I
+2. Item II
+3. Item III
+4. Item IV
+
+[Segue o link da disciplina CE302](https://gysi.quarto.pub/ce302/chapters)
+
+![*Imagem do mesmo diretório:*](/home/est/gfp24/Imagens/Sem título.jpeg)
+
+![*Imagem da internet:*](https://wallpapers.com/images/hd/imagens-de-gatinhos-fofos-efuyfbvkc6on2uis.jpg)
+
+> Criando um bloco de citação.
+
+> citação I
+
+> citação II
+
+> citação III
+
+> olá  
+> oi  
+> tudo bem?
+
+
+
+## Título de nível 2.
+
+Criando uma divisão horizontal.
+
+---
+
+Aparentemente funcionou.
+
+
+- E agora 
+  - Uma lista aninhada 
+    - Com pelo menos dois níveis.
+
